@@ -1,14 +1,18 @@
 import React from "react";
-import {Text, View} from "react-native";
+import {View, Text, Image} from "react-native";
 
-function hello() {
-  const name = "aru"
+function Hello(props: any){
   return(
     <View>
-      <Text>Hello, {name}</Text>
+      <Text>Hello, {props.name}</Text>
+      <Image source={require("practiceMyApp/assets/images/home_icon.png")}
+      />
     </View>
   );
-}
+};
 
+Hello.defaultProps = {
+  name: "World!"
+};
 
-export default hello;
+export default Hello;
