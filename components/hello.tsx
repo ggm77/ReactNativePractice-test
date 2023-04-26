@@ -1,18 +1,41 @@
-import React from "react";
-import {View, Text, Image} from "react-native";
+import React, {useState} from "react";
+import {View, Text, Image, StyleSheet, Button, } from "react-native";
 
-function Hello(props: any){
-  return(
-    <View>
-      <Text>Hello, {props.name}</Text>
-      <Image source={require("practiceMyApp/assets/images/home_icon.png")}
-      />
-    </View>
-  );
+function pictureChoice(props: boolean){
+    var p1 = require("practiceMyApp/assets/images/cat.gif");
+    var p2 = require("practiceMyApp/assets/images/cat2.gif");
+
+    return(props ? p1:p2);
+}
+
+function btn(){
+
+    const [value, changeValue] = useState(true);
+
+    return(
+        <View>
+            <Text>cute cat</Text>
+            <Image 
+                source = {pictureChoice(value)}
+                style = {styles.mainImage}
+            />
+
+            <Button
+                title = "Change Cat"
+                onPress={() => {changeValue(!value);}}
+
+            />
+        </View>
+    );
 };
 
-Hello.defaultProps = {
-  name: "World!"
-};
+const styles = StyleSheet.create({
+    mainImage: {
+        width: 500,
+        height: 500,
+    }
+});
 
-export default Hello;
+export default btn;
+
+

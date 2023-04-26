@@ -5,13 +5,15 @@
  * @format
  */
 import React from "react";
-import { SafeAreaView } from "react-native";
-import Hello from "./components/hello";
+import { 
+  SafeAreaView,
+} from "react-native";
+import Btn from "./components/hello";
 
 const App = () => {
   return(
     <SafeAreaView>
-      <Hello name='aru'/>
+      <Btn/>
     </SafeAreaView>
   );
 };
